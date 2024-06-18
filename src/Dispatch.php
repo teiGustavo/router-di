@@ -45,6 +45,9 @@ abstract class Dispatch
     /** @var int */
     protected ?int $error = null;
 
+    /** @var mixed */
+    protected mixed $container = null;
+
     /** @const int Bad Request */
     public const BAD_REQUEST = 400;
 
@@ -63,12 +66,13 @@ abstract class Dispatch
      * @param string $projectUrl
      * @param null|string $separator
      */
-    public function __construct(string $projectUrl, ?string $separator = ":")
+    public function __construct(string $projectUrl, ?string $separator = ":", mixed $container = null)
     {
         $this->projectUrl = (substr($projectUrl, "-1") == "/" ? substr($projectUrl, 0, -1) : $projectUrl);
         $this->path = rtrim((filter_input(INPUT_GET, "route", FILTER_DEFAULT) ?? "/"), "/");
         $this->separator = ($separator ?? ":");
         $this->httpMethod = $_SERVER['REQUEST_METHOD'];
+        $this->container = $container;
     }
 
     /**

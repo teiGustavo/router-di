@@ -109,7 +109,12 @@ trait RouterTrait
             $method = $this->route['action'];
 
             if (class_exists($controller)) {
-                $newController = new $controller($this);
+                if (!is_null($this->container)) {
+                    $newController = $this->container->get($controller);
+                } else {
+                    $newController = new $controller($this);
+                }
+
                 if (method_exists($controller, $method)) {
                     $newController->$method(($this->route['data'] ?? []));
                     return true;

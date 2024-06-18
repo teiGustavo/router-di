@@ -15,10 +15,14 @@ class Router extends Dispatch
      *
      * @param string $projectUrl
      * @param null|string $separator
+     * @param mixed $container PHP-DI dependency injection container 
+     *                         to automatically resolve Controller 
+     *                         dependencies
+     * 
      */
-    public function __construct(string $projectUrl, ?string $separator = ":")
+    public function __construct(string $projectUrl, ?string $separator = ":", mixed $container = null)
     {
-        parent::__construct($projectUrl, $separator);
+        parent::__construct($projectUrl, $separator, $container);
     }
 
     /**
