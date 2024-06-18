@@ -1,6 +1,6 @@
 {
-  "name": "coffeecode/router",
-  "description": "A classic CoffeeCode Router is easy, fast and extremely uncomplicated. Create and manage your routes in minutes!",
+  "name": "gteixeira/router",
+  "description": "A fork of a classic CoffeeCode Router",
   "keywords": [
     "CoffeeCode",
     "UpInside",
@@ -14,6 +14,11 @@
     {
       "name": "Robson V. Leite",
       "email": "cursos@upinside.com.br",
+      "role": "Developer"
+    },
+    {
+      "name": "Gustavo Teixeira de Sousa",
+      "email": "gteixeiradesousa7@gmail.com",
       "role": "Developer"
     }
   ],
